@@ -6,7 +6,10 @@
       <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheet.css') }}" media="screen" />
       <script src="{{ url_for('static',filename='scripts.js') }}"></script>
   </head>
-  <body>
+  <body class="results-body">
+    <div>
+      <a href= "/">Click Here to Return!</a>
+    </div>
     <div class="search-bar search-bar2" id="searchBar">
         <form action="" class="search-bar" onsubmit="showResults()">
           <input type="search" name="search" pattern=".*\S.*" required>
@@ -18,7 +21,7 @@
     <div class="filter-bar" id="filterBar">
         <div class="filter-options">
             <select class="filter-dropdown">
-                <option value="option1">Option 1</option>
+                <option value="option1">{{session['keyword']}}</option>
                 <option value="option2">Option 2</option>
                 <option value="option3">Option 3</option>
             </select>

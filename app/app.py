@@ -1,13 +1,16 @@
-from flask import Flask,request
-from flask import render_template
-from flask import jsonify
+from flask import *
 
 app = Flask(__name__)
+app.secret_key = "louisss"
 
-def htmlEstatico():
-    return render_template('results.html')
 
-@app.route("/")
+@app.route("/", methods=['POST','GET'])
 def index():
-    return htmlEstatico()
+    if request.method =='POST' and request.form["keyword"] != "":
+        session['keyword'] = request.form["keyword"]
+        return redirect(url_for('results'))
+    return render_template("index.html")
 
+@app.route("/results", methods=['POST','GET'])
+def results():
+    return render_template("results.html")

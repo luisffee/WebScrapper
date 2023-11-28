@@ -8,30 +8,13 @@
   </head>
   <body>
     <div class="search-bar" id="searchBar">
-        <form action="" class="search-bar" onsubmit="showResults()">
-          <input type="search" name="search" pattern=".*\S.*" required>
-          <button class="search-btn" type="submit">
+        <form class="search-bar" method="post" onsubmit="displayUser({{session['keyword']}})" >
+          <input type="search" name="keyword" pattern=".*\S.*" required >
+          <button class="search-btn" type="submit" >
             <span>Search</span>
           </button>
         </form>
     </div>
 
-    <div class="filter-bar" id="filterBar">
-        <div class="filter-options">
-            <select class="filter-dropdown">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="search-results" id="searchResults">
-        <ul>
-            <li>Result 1</li>
-            <li>Result 2</li>
-            <li>Result 3</li>
-        </ul>
-    </div>
   </body>
 </html>

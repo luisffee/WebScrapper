@@ -203,5 +203,11 @@ body {
 
 .filter-bar {
     position: flex;
-    z-index: 0;
+    align-self: center;
+    ;
+}
+
+.results-body {
+    position: flex;
+    flex-direction: column;
 }

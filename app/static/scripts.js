@@ -1,8 +1,19 @@
 
-function showResults() {
-    // Prevent the form from submitting (to avoid page refresh)
-    event.preventDefault();
+const baseEndpoint = "https://api.semanticscholar.org/graph/v1/paper/search?query=";
 
-    // Show filter bar and search results
-    document.getElementById('searchBar2').style.transform = 'translateY(-40vh)';
+async function displayUser(input) {
+    if (input.includes(' ')) {
+        input = input.replace(/ /g, '+')
+        console.log(input)
+    }
+
+    const response = await fetch(`${baseEndpoint}/${input}&openAccessPdf&fields=title,year,authors,abstract,fieldsOfStudy`);
+    const data = await response.json();
+
+    console.log(data);
+}
+
+function handleError(err) {
+    console.log("OH NO!");
+    console.log(err);
 }
