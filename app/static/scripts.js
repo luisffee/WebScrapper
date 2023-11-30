@@ -1,19 +1,21 @@
 
-const baseEndpoint = "https://api.semanticscholar.org/graph/v1/paper/search?query=";
+$(document).ready(function () {
+    $('form').submit(function (event) {
+        event.preventDefault();
 
-async function displayUser(input) {
-    if (input.includes(' ')) {
-        input = input.replace(/ /g, '+')
-        console.log(input)
-    }
+        var $searchField = $('#search');
+        var $submitButton = $('#submit');
 
-    const response = await fetch(`${baseEndpoint}/${input}&openAccessPdf&fields=title,year,authors,abstract,fieldsOfStudy`);
-    const data = await response.json();
+        $searchField.prop("disabled", true);
+        $submitButton.attr("disabled", true).val("searching ...");
 
-    console.log(data);
-}
-
-function handleError(err) {
-    console.log("OH NO!");
-    console.log(err);
-}
+        var flickerAPI = "https://api.semanticscholar.org/graph/v1/paper/search?";
+        var animal = $searchField.val();
+        var flickrOptions = {
+            query: "Atom",
+            format: "json",
+            limit: 10
+        };
+        $.getJSON(flickerAPI, flickrOptions);
+    })
+})

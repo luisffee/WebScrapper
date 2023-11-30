@@ -6,10 +6,12 @@ app.secret_key = "louisss"
 
 @app.route("/", methods=['POST','GET'])
 def index():
+    keyword = ""
     if request.method =='POST' and request.form["keyword"] != "":
         session['keyword'] = request.form["keyword"]
-        return redirect(url_for('results'))
-    return render_template("index.html")
+        keyword = str(session['keyword'])
+        #return redirect(url_for('results'))
+    return render_template("index.html", keyword=keyword)
 
 @app.route("/results", methods=['POST','GET'])
 def results():
