@@ -30,7 +30,7 @@ body,
 body {
     background: #f1f1f1;
     height: 100vh;
-    display: flex;
+    display: flexbox;
 }
 
 .search-bar input,
@@ -210,4 +210,11 @@ body {
 .results-body {
     position: flex;
     flex-direction: column;
+}
+
+
+.result-img {
+    width: 5%;
+    height: 5%;
+    object-fit: cover;
 }
