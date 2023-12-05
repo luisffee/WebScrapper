@@ -9,16 +9,26 @@
   </head>
   <body>
     <div class="search-bar" id="searchBar">
-        <form class="search-bar" method="post" id="form" >
+        <form class="form" method="post" id="form" >
           <input id= "search" type="search" name="keyword" pattern=".*\S.*" required >
           <button class="search-btn" id="submit" type="submit" >
             <span>Search</span>
           </button>
         </form>
     </div>
+    <form id="filters" class="max-w-3xl mx-auto flex justify-center p-4">
+      <div class="grid sm:grid-cols-3 sm:grid-rows-1 grid-rows-3 gap-4 w-full sm:w-auto">
+        <select name="type" id="type" class="border p-2 focus:outline-none">
+          <option value="" selected>Choose Type</option>
+          <option value="eng">English</option>
+          <option value="ger">German</option>
+        </select>
+        <input type="checkbox" name="English">English</input>
+        <input type="checkbox" name="German">German</input>
+      </div>
+    </form>
     <div id="search-results">
-
+  
     </div>
-
   </body>
 </html>

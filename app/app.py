@@ -1,8 +1,10 @@
 from flask import *
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.secret_key = "louisss"
 
+CORS(app)
 
 @app.route("/", methods=['POST','GET'])
 def index():
